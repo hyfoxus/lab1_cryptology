@@ -56,9 +56,40 @@ string Scialata(string phrase, int lines){
     return newPhrase;
 }
 
+char Polybius(char letter){
+    int index = 0;
+    int letterX = 0;
+    int letterY = 0;
+    char array[5][5];
+    for (int i = 0; i < 5; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            if (index != 9){
+                array[i][j] = 97 + index;
+                if (letter == array[i][j]){
+                    letterX = j;
+                    letterY = i;
+                }
+                index++;
+            } else{
+                array[i][j] = 97 + index;
+                if (letter == array[i][j]){
+                    letterX = j;
+                    letterY = i;
+                }
+                index += 2;
+            }
+        }
+    }
 
+    if (letterY == 4){
+        return array[letterY][0];
+    } else{
+        return array[letterY + 1][letterX];
+    }
+
+}
 
 int main() {
-    //cout << Scialata("", 3) << endl;
+    cout << Polybius('f') << endl;
     return 0;
 }
