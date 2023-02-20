@@ -30,8 +30,8 @@ string Scialata(string phrase, int lines){
     char array[columns][lines];
 
     int iter = 0;
-    for (int i = 0; i < lines; ++i) {
-        for (int j = 0; j < columns; ++j) {
+    for (int i = 0; i < columns; ++i) {
+        for (int j = 0; j < lines; ++j) {
             if (iter < phrase.length()) {
                 char aux = phrase.at(iter);
                 array[i][j] = aux;
@@ -41,10 +41,11 @@ string Scialata(string phrase, int lines){
         }
     }
 
+
     string newPhrase;
     int iterNew = 0;
-    for (int i = 0; i < columns; ++i) {
-        for (int j = 0; j < lines; ++j) {
+    for (int i = 0; i < lines; ++i) {
+        for (int j = 0; j < columns; ++j) {
             if (iterNew <= phrase.length()) {
                 char aux = array[j][i];
                 newPhrase += aux;
@@ -91,5 +92,7 @@ char Polybius(char letter){
 
 int main() {
     cout << Polybius('f') << endl;
+    cout << Ceaser('f', 5) << endl;
+    cout << Scialata("Hello World!", 10) << endl;
     return 0;
 }
